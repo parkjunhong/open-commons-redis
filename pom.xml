@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>open.commons</groupId>
+	<artifactId>open-commons-redis</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Open Commons for REDIS Database</name>
+
+	<properties>
+		<java-version>1.8</java-version>
+		<open-commons-core.version>1.4.10</open-commons-core.version>
+		<redisclient-lettuce.version>4.3.1.Final</redisclient-lettuce.version>
+	</properties>
+
+	<dependencies>
+		<!-- begin: open-commons -->
+		<dependency>
+			<groupId>open.commons</groupId>
+			<artifactId>open-commons-core</artifactId>
+			<version>${open-commons-core.version}</version>
+		</dependency>
+		<!-- end: open-commons -->
+
+		<!-- begin: redis -->
+		<dependency>
+			<groupId>biz.paluch.redis</groupId>
+			<artifactId>lettuce</artifactId>
+			<version>${redisclient-lettuce.version}</version>
+		</dependency>
+		<!-- end: redis -->
+
+		<!-- begin: logger -->
+		<!-- https://mvnrepository.com/artifact/com.lmax/disruptor -->
+		<!-- for log4j-2.x: making all asynchronous loggers -->
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>3.3.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.7</version>
+		</dependency>
+
+		<!-- end: logger -->
+
+	</dependencies>
+
+	<build>
+		<finalName>open-commons-redis</finalName>
+		<defaultGoal>install</defaultGoal>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory></directory>
+				<includes>
+					<include>
+					</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Release Repository</name>
+			<url>http://maven.ymtech.co.kr/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Snapshot Repository</name>
+			<url>http://maven.ymtech.co.kr/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<description>
+[2017-03-21]
+ - INITIALIZE</description>
+</project>

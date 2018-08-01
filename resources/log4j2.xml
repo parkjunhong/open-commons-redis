@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://logging.apache.org/log4j/2.x/manual/appenders.html -->
+<!-- https://logging.apache.org/log4j/2.x/manual/appenders.html#AsyncAppender -->
+<!-- https://logging.apache.org/log4j/2.x/manual/async.html -->
+<Configuration>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+<!-- 			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} | %10t | %5p | %m (%F:%L) %n}" /> -->
+			<PatternLayout pattern="%highlight{%d{yyyy-MM-dd HH:mm:ss} | %10t | %5p | %m (%F:%L) %n}{WARN=Bright magenta, DEBUG=white, TRACE=Bright black}" />
+		</Console>
+	</Appenders>
+
+
+	<Loggers>
+		<!-- Application Loggers -->
+
+		<Logger name="open.commons.redis" level="info" includeLocation="true"/>
+
+		<Logger name="com.lambdaworks.redis" level="info" includeLocation="true"/>
+
+		<Logger name="org.reflections" level="info" includeLocation="true"/>
+
+		<Root level="warn" includeLocation="true">
+			<AppenderRef ref="console" />
+		</Root>
+
+	</Loggers>
+
+</Configuration>
